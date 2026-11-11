@@ -176,6 +176,12 @@ async def order_status(req:InitRequest, order_id:str):
 
 @api.get("/admin",response_class=HTMLResponse)
 async def admin_page(_=Depends(admin_user)):
+path=os.path.join(os.path.dirname(file),"admin.html")
+try:
+with open(path,encoding="utf-8") as f:
+return f.read()
+except FileNotFoundError:
+raise HTTPException(500,"Файл admin.html отсутствует")
     path=os.path.join(os.path.dirname(__file__),"admin.html")
     try:
         with open(path,encoding="utf-8") as f: return f.read()
