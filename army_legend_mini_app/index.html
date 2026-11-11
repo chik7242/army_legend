@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1b1015">
+  <title>ARMY LEGEND — магазин цифровых товаров</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-mark">AL<span>✦</span></div>
+      <div class="brand-copy"><b>ARMY LEGEND</b><small>DIGITAL STORE</small></div>
+      <button class="icon-btn" id="profileShortcut" aria-label="Профиль">⌁</button>
+    </header>
+
+    <main id="app">
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">DIGITAL SUPPLY · ONLINE</span>
+          <h1>Твой доступ.<br><em>Твои правила.</em></h1>
+          <p>Цифровые товары и подписки с быстрой выдачей после оплаты.</p>
+          <button class="primary-btn" id="heroCatalog">Открыть каталог <span>↗</span></button>
+        </div>
+        <div class="hero-orbit"><div class="orbit-core">AL</div><i></i><b></b></div>
+      </section>
+
+      <section class="search-row">
+        <span>⌕</span><input id="searchInput" type="search" placeholder="Найти игру, софт или подписку…">
+      </section>
+
+      <section class="promo">
+        <div><span class="promo-tag">LIMITED OFFER</span><h2>Распродажа до −25%</h2><p>Выбирай товар — предложение ограничено.</p></div>
+        <div class="promo-symbol">%</div>
+      </section>
+
+      <section class="section-head"><div><span class="eyebrow">НАВИГАЦИЯ</span><h2>Категории</h2></div><span class="muted">Выбери платформу</span></section>
+      <div class="platforms" id="platformFilters">
+        <button class="chip active" data-platform="all">Все</button>
+        <button class="chip" data-platform="Android">Android</button>
+        <button class="chip" data-platform="iOS">iOS</button>
+        <button class="chip" data-platform="PC">PC</button>
+      </div>
+
+      <section class="section-head compact"><div><span class="eyebrow">POPULAR PICKS</span><h2>Каталог</h2></div><span class="muted" id="itemCount"></span></section>
+      <div class="catalog-grid" id="catalogGrid"></div>
+
+      <section class="community">
+        <div><span class="eyebrow">STAY CONNECTED</span><h2>ARMY LEGEND<br>COMMUNITY</h2><p>Новости, обновления и помощь</p></div>
+        <div class="community-links">
+          <a id="channelLink" href="#" target="_blank" rel="noreferrer">Канал <span>↗</span></a>
+          <a id="chatLink" href="#" target="_blank" rel="noreferrer">Поддержка <span>↗</span></a>
+        </div>
+      </section>
+    </main>
+
+    <main id="productPage" class="hidden"></main>
+    <main id="reviewsPage" class="hidden">
+      <section class="page-intro"><span class="eyebrow">COMMUNITY FEEDBACK</span><h1>Отзывы</h1><p>Отзывы покупателей появятся здесь после подключения вашего канала с отзывами.</p></section>
+      <div class="empty-state"><div>✦</div><b>Честные отзывы важны</b><span>Добавьте ссылку на канал с отзывами в app.js.</span></div>
+    </main>
+    <main id="checkPage" class="hidden">
+      <section class="page-intro"><span class="eyebrow">ACCESS CONTROL</span><h1>Проверка</h1><p>Проверьте статус цифрового заказа по номеру.</p></section>
+      <div class="panel"><label for="orderCheck">Номер заказа</label><input id="orderCheck" placeholder="Например, AL-123456"><button class="primary-btn full" id="checkOrder">Проверить заказ</button><div id="checkResult" class="notice"></div></div>
+    </main>
+    <main id="profilePage" class="hidden">
+      <section class="page-intro"><span class="eyebrow">YOUR ACCOUNT</span><h1>Профиль</h1><p>Информация о вашем Telegram-аккаунте и заказах.</p></section>
+      <div class="panel profile-panel"><div class="avatar" id="avatar">AL</div><div><b id="profileName">Гость</b><span id="profileId" class="muted">Откройте приложение через Telegram</span></div></div>
+      <div class="panel"><div class="row-between"><span>Мои покупки</span><b id="purchaseCount">0</b></div><button class="secondary-btn full" id="showOrders">Посмотреть заказы</button><div id="ordersList"></div></div>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-tab="catalog"><span>▦</span><small>Каталог</small></button>
+      <button class="nav-item" data-tab="reviews"><span>☆</span><small>Отзывы</small></button>
+      <button class="nav-item" data-tab="check"><span>⌕</span><small>Проверка</small></button>
+      <button class="nav-item" data-tab="profile"><span>♙</span><small>Профиль</small></button>
+    </nav>
+  </div>
+
+  <div class="modal-backdrop hidden" id="checkoutModal">
+    <div class="modal">
+      <button class="modal-close" id="closeModal">×</button>
+      <span class="eyebrow">ORDER SUMMARY</span><h2>Оформление</h2>
+      <div id="checkoutSummary"></div>
+      <p class="fineprint">Оплата цифровых товаров внутри Telegram выполняется через Telegram Stars (XTR). Счёт откроется в защищённом окне Telegram.</p>
+      <button class="primary-btn full" id="payButton">Перейти к оплате <span>↗</span></button>
+      <div id="paymentMessage" class="notice"></div>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
