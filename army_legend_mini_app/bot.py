@@ -173,7 +173,14 @@ async def order_status(req:InitRequest, order_id:str):
         row=c.execute("SELECT id,status FROM orders WHERE id=? AND user_id=?",(order_id,user["id"])).fetchone()
     if not row: raise HTTPException(404,"Заказ не найден")
     return dict(row)
-
+@api.get("/", response_class=HTMLResponse)
+async def store_page():
+path = os.path.join(os.path.dirname(file), "index.html")
+try:
+with open(path, encoding="utf-8") as f:
+return f.read()
+except FileNotFoundError:
+raise HTTPException(500, "Файл index.html отсутствует")
 @api.get("/admin",response_class=HTMLResponse)
 async def admin_page(_=Depends(admin_user)):
 path=os.path.join(os.path.dirname(file),"admin.html")
