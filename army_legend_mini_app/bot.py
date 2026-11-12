@@ -168,7 +168,7 @@ async def my_orders(req:InitRequest):
 
 @api.get("/", response_class=HTMLResponse)
 async def store_page():
-    path = os.path.join(os.path.dirname(_file_), "index.html")
+    path = os.path.join(os.path.dirname(__file__), "index.html")
     try:
         with open(path, encoding="utf-8") as f:
             return f.read()
