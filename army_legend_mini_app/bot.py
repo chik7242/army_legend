@@ -165,15 +165,6 @@ async def my_orders(req:InitRequest):
     with closing(db()) as c:
         rows=c.execute("SELECT id,product,plan,price,status,created_at FROM orders WHERE user_id=? ORDER BY created_at DESC LIMIT 30",(user["id"],)).fetchall()
     return {"orders":[dict(r) for r in rows]}
-
-@api.get("/", response_class=HTMLResponse)
-async def store_page():
-    path = os.path.join(os.path.dirname(__file__), "index.html")
-    try:
-        with open(path, encoding="utf-8") as f:
-            return f.read()
-    except FileNotFoundError:
-        raise HTTPException(500, "Файл index.html отсутствует")
 @api.get("/", response_class=HTMLResponse)
 async def store_page():
 path = os.path.join(os.path.dirname(file), "index.html")
