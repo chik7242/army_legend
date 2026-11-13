@@ -1,3 +1,258 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #05040a;
+  --panel: #100c1b;
+  --panel2: #171025;
+  --purple: #9b32ff;
+  --purple2: #c15aff;
+  --glow: #791cff;
+  --text: #f5efff;
+  --muted: #aaa0bb;
+  --border: #7625b9;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 50% -10%, #351052 0%, transparent 48%),
+    radial-gradient(ellipse at 0% 55%, #170d2b 0%, transparent 45%),
+    #05040a;
+  color: var(--text);
+  font: 14px system-ui, Arial, sans-serif;
+}
+
+.shell {
+  max-width: 760px;
+  margin: auto;
+  padding: 0 18px;
+}
+
+header {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #9b32ff55;
+  background: #080610cc;
+  box-shadow: 0 4px 25px #7900ff18;
+}
+
+.mark {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--purple);
+  color: white;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  background: linear-gradient(145deg, #3d155e, #10091c);
+  box-shadow: 0 0 17px #9b32ff70;
+}
+
+.brand b {
+  letter-spacing: 2px;
+  text-shadow: 0 0 12px #a83cff;
+}
+
+.brand i,
+em,
+footer i {
+  color: var(--purple2);
+  font-style: normal;
+}
+
+.brand small {
+  display: block;
+  color: #a99bbd;
+  font-size: 8px;
+  letter-spacing: 3px;
+}
+
+.star {
+  margin-left: auto;
+  color: var(--purple2);
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  margin: 22px 0 12px;
+  padding: 28px 22px;
+  background:
+    linear-gradient(100deg, #090711 5%, #21102fdd 55%, #080611 100%);
+  border: 1px solid #a43cff99;
+  min-height: 220px;
+  box-shadow:
+    0 0 18px #8b22ff35,
+    inset 0 0 35px #791cff20;
+}
+
+.hero:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, transparent 35%, #b94cff12 50%, transparent 65%);
+}
+
+.hero small,
+.heading small {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--purple2);
+  font-weight: 800;
+}
+
+.hero h1 {
+  font-size: clamp(28px, 7vw, 46px);
+  line-height: 1.06;
+  letter-spacing: -2px;
+  margin: 18px 0 10px;
+  text-shadow: 0 0 22px #9b32ff70;
+}
+
+.hero h1 em {
+  color: #c77aff;
+}
+
+.hero p {
+  font-size: 11px;
+  color: #c2b5d5;
+}
+
+.hero > b {
+  display: block;
+  text-align: right;
+  color: #c77aff;
+  font-size: 8px;
+  letter-spacing: 2px;
+  margin-top: 25px;
+}
+
+.benefits {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  margin: 14px 0 32px;
+  color: #c2b5d5;
+  font-size: 8px;
+  letter-spacing: .5px;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin: 22px 0 14px;
+}
+
+.heading h2 {
+  margin: 4px 0 0;
+  font-size: 25px;
+  text-shadow: 0 0 15px #9b32ff50;
+}
+
+.heading > span {
+  font-size: 10px;
+  color: var(--purple2);
+}
+
+nav {
+  display: flex;
+  gap: 7px;
+  overflow: auto;
+  padding-bottom: 14px;
+}
+
+nav button {
+  background: #110b1d;
+  border: 1px solid #66318e;
+  color: #d4c4e8;
+  padding: 8px 13px;
+  font-size: 10px;
+  white-space: nowrap;
+  border-radius: 5px;
+}
+
+nav button.active {
+  background: linear-gradient(135deg, #9b32ff, #5713a0);
+  color: white;
+  border-color: #d18aff;
+  box-shadow: 0 0 15px #9b32ff70;
+}
+
+#catalog {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.card {
+  background: linear-gradient(145deg, #191025, #0b0812);
+  border: 1px solid #7026a8;
+  min-width: 0;
+  border-radius: 7px;
+  overflow: hidden;
+  box-shadow: 0 0 12px #7500ff18;
+  transition: .2s ease;
+}
+
+.card:hover {
+  border-color: #c15aff;
+  box-shadow: 0 0 18px #9b32ff55;
+  transform: translateY(-2px);
+}
+
+.pic {
+  height: 125px;
+  background:
+    radial-gradient(circle at 50% 40%, #572080, #130b20 75%);
+  display: grid;
+  place-items: center;
+  color: #d18aff;
+  font-size: 36px;
+  overflow: hidden;
+}
+
+.pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.body {
+  padding: 12px;
+}
+
+.cat {
+  font-size: 8px;
+  color: #c15aff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.body h3 {
+  font-size: 13px;
+  margin: 6px 0;
+}
+
+.body p {
+  font-size: 10px;
+  color: #b6a9c8;
+  line-height: 1.45;
+  min-height: 29px;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items
+
+
 center;
   gap: 4px;
 }
